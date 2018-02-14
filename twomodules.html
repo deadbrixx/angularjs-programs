@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>twoormoreC</title>
+	<script src="angular.min.js"></script>
+	<script>
+	var app = angular.module("mymodule1",["mymodule2"])
+	app.controller("cont1", function(){
+			alert("for first module of container")
+	})
+	var app2 = angular.module("mymodule2",[])
+	app2.controller("cont2", function($scope){
+     		$scope.message="getting second controller and module.."
+	})
+	</script>
+</head>
+<body ng-app="mymodule1" ng-controller="cont1">
+	<div ng-controller = "cont2">
+		<h2 style="color:silver;">{{message}}</h2>
+	</div>
+
+	</body>
+	</html>

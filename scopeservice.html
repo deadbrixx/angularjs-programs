@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>modulwncontroller</title>
+	<script src="angular.min.js"></script>
+	<script>
+	    var mod = angular.module("myfirstmodule",[])
+	    mod.controller("cont1",function($scope){
+	    	alert("$scope is used to give scope to the variable, so we can access from body also(anywhere)")
+	    	$scope.programs = 100
+	    })
+	    </script>
+</head>
+<body ng-app="myfirstmodule" ng-controller="cont1">
+	<h1>{{programs}}</h1>
+	</body>
+	</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>array</title>
+	<script src="angular.min.js"></script>
+	<style>
+	tr:nth-child(odd){
+		background-color: #1ED760;
+	}
+	tr:nth-child(even){
+		background-color: #3EB6FF;
+	}
+	select{
+		background-color: #1ED760;
+		color: white;
+		font-size: 20px;
+	}
+	option{
+		background-color: #3EB6FF;
+		color: white;
+		font-size: 20px;
+	}
+	</style>
+</head>
+<body ng-app ng-init = "cars = ['ferrari', 'lambo', '30000']">
+	<h2>{{cars}}</h2>
+	<h2> {{cars[0]}}</h2>
+	<li ng-repeat = "carvalues in cars">{{carvalues}}</li>
+	<hr>
+
+	<h2 ng-init = "car = {name:'bentley', engine:3000, price:'100000'}">
+		<h3>{{car.name}}</h3>
+		<h3>{{car.engine}}</h3>
+		<h3>{{car.price}}</h3>
+		<li ng-repeat = "i in car">{{i}}</li>
+		<hr>
+
+		<h3 ng-init="aofb=[{name:'Ferrari',price:10000,engine:'900BPH'},
+							{name:'Aston martin',price:30000,engine:'1000BPH'},
+							{name:'Tesla',price:50000,engine:'1300BPH'},
+							{name:'Bugatti',price:70000,engine:'1400BPH'},
+							{name:'Cadillac',price:20000,engine:'1500BPH'}]">
+
+				<h1>{{aofb}}</h1>
+				<h3>{{aofb[0].name}} {{aofb[1].name}} {{aofb[2].name}}</h3>
+
+				<table border="0">
+					<tr ng-repeat="j in aofb" style="color:white">
+						<td>{{j.name}}</td>
+						<td>{{j.price}}</td>
+						<td>{{j.engine}}</td>
+					</tr>
+				</table>
+ <hr>
+				<p ng-init = "list = ['Aston Martin','Tesla', 'Infiniti', 'Bentley', 'Maserrati', 'Pagani','Cadillac','RollsRoyace']">
+					<select>
+						<option ng-repeat="name in list">{{name}}</option>
+					</select>
+
+
+</body>
+</html>

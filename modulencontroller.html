@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>modulwncontroller</title>
+	<script src="angular.min.js"></script>
+	<script>
+	    var mod = angular.module("myfirstmodule",[])
+	    mod.controller("cont1",function($scope){
+	    	alert("successfully created module and contrller...")
+	    	$scope.programs = 10
+	    })
+	    </script>
+</head>
+<body ng-app="myfirstmodule" ng-controller="cont1">
+	<h1>{{programs}}</h1>
+	</body>
+	</html>

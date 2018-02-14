@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>ajs</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app ng-init="car='Aston Martin'">
+
+	<h2 >{{car}}</h2>
+	<input type="button" value="Change me" ng-click="car='Bentley'">
+
+	<div ng-init= "img = 'a.png'">
+
+      <img src="{{img}}" ng-mouseover = "img = 'c.png'"
+                         ng-mouseout = "img = 'a.png'"
+                         ng-click = "img = 'v.jpg'">
+	</div>
+
+	<div ng-init = "tmp = false">
+		<input type="button" value = "show" ng-click = "tmp = true">
+		 <input type="button" value = "hide" ng-click = "tmp = false">
+		 <img src="v.jpg" ng-show = "tmp">
+
+
+</body>
+</html>

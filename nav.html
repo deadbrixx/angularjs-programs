@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>changenav</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app>
+<div class="navigation" ng-init="value='Angular.Js'">
+	<span>
+		<h2 ng-mouseover = "value = 'ANGULAR2'" ng-mouseout = "value = 'Angular.Js'">{{value}}</h2>
+		  <ul>
+			<li>Home</li>
+			<li>About</li>
+			<li>Gallery</li></ul>
+		</span>
+	</div>
+</body>
+</html>
