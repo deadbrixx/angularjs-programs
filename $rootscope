@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>rootscope</title>
+	<script src="angular.min.js"></script>
+	<script>
+		meramodule = angular.module("meramodule", [])
+		meramodule.controller("meracont1", function($scope){
+			$scope.cars = ["ferrari", "lambo", "bentley", "astonmartin"]
+		})
+		meramodule.controller("meracont2", function($rootScope){
+			$rootScope.bike = [{name:"ducati", price:"100000", engine:"600HP"},
+									{name:"Bmw", price:"130000", engine:"800HP"},
+									   {name:"Kawasaki", price:"160000", engine:"900HP"}]
+		})
+		</script>
+</head>
+<body ng-app="meramodule">
+	<div ng-controller="meracont1">
+		<h2 ng-repeat="i in cars">{{i}}</h2>
+		<hr>
+		<li ng-repeat="k in bike">{{k.name}}</li>
+		<hr>
+
+
+		<span ng-controller="meracont2">
+				<li ng-repeat="j in bike">{{j.name}}<br>{{j.price}}<br>{{j.engine}}</li>
+		</span>
+
+	</div>
+</body>
+</html>
