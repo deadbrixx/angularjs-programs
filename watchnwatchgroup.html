@@ -1,0 +1,97 @@
+<html>
+<head>
+	<title>watch1</title>
+	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+          
+	<script src="angular.min.js"></script>
+	<script>
+		mymodule = angular.module("mymodule",[])
+		mymodule.controller("cont1", function($scope){
+			$scope.a = 10
+			$scope.b = 20
+			$scope.c = $scope.a+$scope
+			$scope.d = 5
+			$scope.e = 1
+			$scope.f = 2.2
+			$scope.g = 0
+
+			$scope.$watch("a",function(){
+				$scope.c = parseInt($scope.a)+parseInt($scope.b)
+					})
+
+			$scope.$watch("b", function(){
+				$scope.c = parseInt($scope.a)+parseInt($scope.b)
+			})
+
+			$scope.$watch("d", function(prev, next){
+				alert(prev)
+				alert(next)
+			})
+
+			$scope.$watchGroup(["e","f"], function(n, p){
+				$scope.g = parseInt($scope.e)+parseFloat($scope.f)
+			})
+
+
+
+
+		})
+	</script>
+</head>
+<body ng-app="mymodule" ng-controller="cont1">	
+
+<div class="container">
+	<h3 class="blue-grey-text text-darken-2">Angular.Js watchers here..</h3>
+	<div class="divider"></div>
+  		<div class="section  teal accent-3">
+    	<h2 class="white-text text-darken-2" ng-bind="a"></h2>
+    	<input type="text" ng-model="a">
+    </div>
+
+	<div class="divider"></div>
+  		<div class="section green accent-3">
+    	<h2 class="white-text text-darken-2" ng-bind="b"></h2>
+    	<input type="text" ng-model="b">
+    </div>
+
+    <div class="divider"></div>
+  		<div class="section teal accent-3">
+    	<h2 class="white-text text-darken-2">{{c}}</h2>
+    	<input type="text" ng-model="c">
+    </div>
+
+    <div class="divider"></div>
+  		<div class="section green accent-3">
+    	<h2 class="white-text text-darken-2">{{d}}</h2>
+    	<input type="text" ng-model="d">
+    </div>
+
+    <div class="divider"></div>
+  		<div class="section teal accent-3">
+    	<h2 class="white-text text-darken-2" ng-bind="e"></h2>
+    	<input type="text" ng-model="e">
+    </div>
+
+    <div class="divider"></div>
+  		<div class="section green accent-3">
+    	<h2 class="white-text text-darken-2" ng-bind="f"></h2>
+    	<input type="text" ng-model="f">
+    </div>
+
+    <div class="divider"></div>
+  		<div class="section teal accent-3">
+    	<h2 class="white-text text-darken-2">{{g}}</h2>
+    	<input type="text" ng-model="g">
+    </div>
+
+</div>
+
+
+
+
+	</body>
+	</html>
