@@ -1,0 +1,83 @@
+<html>
+<head>
+	<title>crudoperation</title>
+		<script src="angular.min.js"></script>
+			<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script>
+		angular.module("mymodule",[]).controller("cont1",mainfunction)
+		function mainfunction($scope)
+		{
+			$scope.n;$scope.p;$scope.e;
+
+			$scope.userdata = [{name:"JohnP", email:"john@gmail.com", proffession:"Student"},
+								{name:"AdamsI", email:"adams@gmail.com", proffession:"Ceo"},
+							 	 {name:"SashaG", email:"sasha@gmail.com", proffession:"Businessman"},
+							  	  {name:"BenA", email:"ben@gmail.com", proffession:"Actor"}]
+				
+
+		$scope.addfun = function(){
+			$scope.userdata.push({name:$scope.n,email:$scope.e,proffession:$scope.p})
+			$scope.n = ""
+			$scope.p = ""
+			$scope.e = ""
+		} 
+
+		$scope.delfun = function(ind){
+			$scope.userdata.splice(ind, 1)
+		}
+			$scope.indeks;
+		$scope.editfun = function(ind){
+			$scope.indeks = ind
+			$scope.n = $scope.userdata[ind].name
+			$scope.e = $scope.userdata[ind].email
+			$scope.p = $scope.userdata[ind].proffession
+		}
+
+		$scope.updatefun = function(){
+			$scope.userdata[$scope.indeks].name = $scope.n
+			$scope.userdata[$scope.indeks].email = $scope.e
+			$scope.userdata[$scope.indeks].proffession = $scope.p
+		}
+		}
+
+		</script>
+
+			</head>
+	 <body ng-app="mymodule" ng-controller="cont1">
+
+		<div class="container">
+			<table class="striped">
+				<tbody>
+			<thead style="font-weight:bold;">
+              <tr>
+	              <th>Name</th>
+	              <th>Email</th>
+	              <th>Proffesion</th>
+             </tr>
+            </thead>
+          <tr ng-repeat="get in userdata">
+          	<td>{{get.name}}</td>
+          	<td>{{get.email}}</td>
+          	<td>{{get.proffession}}</td>
+          	<td><img src="del.jpg" width="20" ng-click="delfun($index)"></td>
+          	<td><img src="edit.png" width="20" ng-click="editfun($index)"></td>
+          </tr>
+          </tbody>
+      </table>
+      <hr>
+
+          Name : -<input type = "text" ng-model="n">
+          Email : -<input type = "text"ng-model="e">
+          Proffession : -<input type = "text" ng-model="p">
+          <input type="button" value = "Add Data" ng-click="addfun($index)">
+          <input type="button" value = "UpdateData" ng-click="updatefun($index)">
+           
+          
+		</div>
+
+	</body>
+	</html>
